@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="fontawesome/css/all.min.css" class="rel">
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" class="rel">
+        <link rel="stylesheet" href="animate.css/animate.min.css" class="rel">
+        <link rel="stylesheet" href="assets/css/main.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+        <div id="slidesearch" class="search hide d-flex justify-content-center">
+            <input type="search" placeholder="rechercher ...">
+            <button class="submitsearch"><em class="fa fa-search"></em></button>
+            <button id="closebtn" class="closebtn"><em class="fa fa-times"></em></button>
+        </div>
+
+        <div id="head">
+            <div class="container d-flex justify-content-between">
+                <p>Bienvenue chez la senegalaise</p>
+                <ul class="list-inline d-flex">
+                    <li><em class="fab fa-instagram"></em></li>
+                    <li><em class="fab fa-youtube"></em></li>
+                    <li><em class="fab fa-linkedin"></em></li>
+                    <li><em class="fab fa-facebook"></em></li>
+                </ul>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg mt-4">
+            <div class="container">
+                <a class="navbar-brand" href="{{ path('home') }}">
+                    <img class="logo" src="assets/img/logoblack.png" alt="logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <em class="fa fa-hamburger"></em>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav m-auto">
+
+                        <li class="nav-item {% if currentRoute == 'home' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('home') }}">ACCUEIL</a>
+                        </li>
+
+                        <li class="nav-item {% if currentRoute == 'reservation' %}active{% endif %}">
+                            <a href="#" class="nav-link">RESERVER UNE TABLE</a>
+                        </li>
+
+                        <li class="nav-item {% if currentRoute == 'culin' %}active{% endif %}">
+                            <a href="#" class="myculindropdown nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                RECETTES
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <div class="container d-flex justify-content-between">
+                                    <div class="category">
+                                        <h5 class="font-weight-bold text-dark m-3">CATEGORIES</h5>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <img src="assets/img/svg/stew.svg" alt="senegalais">
+                                                <a href"#">Plats sénégalais</a>
+                                            </li>
+                                            <li>
+                                            <img src="assets/img/svg/salad.svg" alt="entree">
+                                                <a href"#">Entées</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/food.svg" alt="entree">
+                                                <a href"#">Plat principal</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/glass.svg" alt="entree">
+                                                <a href"#">Desserts</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/glass.svg" alt="entree">
+                                                <a href"#">Amuses bouches</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/glass.svg" alt="entree">
+                                                <a href"#">Sauces</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/glass.svg" alt="entree">
+                                                <a href"#">Apéritif et buffet</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/glass.svg" alt="entree">
+                                                <a href"#">Patisserie</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/glass.svg" alt="entree">
+                                                <a href"#">Cocktails</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="ingredient">
+                                        <h5 class="font-weight-bold text-dark m-3">INGREDIENTS</h5>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <img src="assets/img/svg/steak.svg" alt="viande">
+                                                <a href="">Viande</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/meat.svg" alt="volailles">
+                                                <a href="">Volailles</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/fish.svg" alt="poisson">
+                                                <a href="">Poissons</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/boiled-egg.svg" alt="oeufs">
+                                                <a href="">Oeufs</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/salad.svg" alt="legumes">
+                                                <a href="">Legumes</a>
+                                            </li>
+                                            <li>
+                                                <img src="assets/img/svg/banana.svg" alt="legumes">
+                                                <a href="">Fruits</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="diet">
+                                        <h5 class="font-weight-bold text-dark m-3">DIET</h5>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="">Vegetarien</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Diabetique</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Minceur</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item {% if currentRoute == 'events' %}active{% endif %}">
+                            <a class="nav-link" href="#">EVENEMENTS</a>
+                        </li>
+
+
+                        <li class="nav-item {% if currentRoute == 'contact' %}active{% endif %}">
+                            <a href="{{ path('contact') }}" class="nav-link">CONTACT</a>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-nav ml-auto">
+                        <em id="btnsearch" class="fa fa-search"></em>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid mt-5">
+            {% block body %}{% endblock %}
+        </div>
+
+        <footer>
+            <div class="container d-flex justify-content-between">
+
+                <img class="logo" src="assets/img/logoblack.png" alt="logo">
+
+                <ul class="list-inline d-flex">
+                    <li><em class="fab fa-instagram"></em></li>
+                    <li><em class="fab fa-youtube"></em></li>
+                    <li><em class="fab fa-linkedin"></em></li>
+                    <li><em class="fab fa-facebook"></em></li>
+                </ul>
+
+                <div>
+                    Copyright <em class="fa fa-copyright"></em> 2019
+                </div>
+
+            </div>
+        </footer>
+
+        <script src="jquery/dist/jquery.min.js"></script>
+        <script src="jquery/dist/jquery.slim.min.js"></script>
+        <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="assets/js/app.js"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

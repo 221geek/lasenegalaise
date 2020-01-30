@@ -1,0 +1,33 @@
+easy_admin:
+    design:
+      menu:
+        - label: 'La sénégalaise'
+          icon: 'newspaper-o'
+          children:
+            - {entity: 'Category', icon: 'user', label: 'Categories des recettes'}
+            - {entity: 'Culin', icon: 'user', label: 'Recettes'}
+            - {entity: 'Ingredient'}
+
+    entities:
+      Category:
+        class: App\Entity\Category
+        form:
+          fields:
+            - {property: 'Name'}
+            - {property: 'Slug'}
+      
+      Culin:
+        class: App\Entity\Culin
+        form:
+          fields:
+            - {property: 'Name'}
+            - {property: 'ingredients'}
+            - {property: 'Preparation'}
+            - {property: 'category'}
+            - {property: 'thumbnailFile', type: 'vich_image'}
+      
+      Ingredient:
+        class: App\Entity\Ingredient
+        form:
+          fields:
+            - {property: 'Name'}

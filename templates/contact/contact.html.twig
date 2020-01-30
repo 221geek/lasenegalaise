@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez nous{% endblock %}
+
+{% block body %}
+
+    <div class="bannercontact d-flex flex-column align-items-center">
+        <h2 class="font-weight-bold text-white mt-4">Contact</h2>
+    </div>
+
+    <div class="container mb-5">
+        <div id="maps">
+            <div id="contact" class="d-flex justify-content-between text-center flex-wrap">
+                <div>
+                    <em class="fa fa-phone"></em>
+                    <h5 class="text-dark font-weight-bold m-3">Téléphone</h5>
+                    <p>+221 77 155 49 53</p>
+                </div>
+                <div>
+                    <em class="fa fa-envelope"></em>
+                    <h5 class="text-dark font-weight-bold m-3">Email</h5>
+                    <p>lasenegalaise@contact.com</p>
+                </div>
+                <div>
+                    <em class="fa fa-map-marker-alt"></em>
+                    <h5 class="text-dark font-weight-bold m-3">Adresse</h5>
+                    <p>xxxxxxx xxx xxxxxx</p>
+                </div>
+                <div>
+                    <em class="fa fa-clock"></em>
+                    <h5 class="text-dark font-weight-bold m-3">Horaire</h5>
+                    <p>Ouvert de 8h00 a 00h00</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3807.8988522043!2d-17.43663454881465!3d14.660926900700009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ssn!4v1574377731196!5m2!1sen!2ssn" width="100%" height="550px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+        </div>
+        <div id="contactform">
+            <h2 class="text-center font-weight-bold text-dark mt-5 mb-5">Nous contacter</h2>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            {% if not form.vars.valid %}
+                <div class="alert alert-danger">
+                    Les informations saisient ne ont pas correctes. Veillez reverifier
+                </div>
+            {% endif %}
+            
+            
+            {{ form_start(form) }}
+                <div class="form-row">
+                    <div class="col form-group">{{ form_row(form.firstname, {'label': 'Prenom', 'attr': {'class': 'form-control'}}) }}</div>
+                    <div class="col form-group">{{ form_row(form.lastname, {'label': 'Nom', 'attr': {'class': 'form-control'}}) }}</div>
+                </div>
+                <div class="form-row">
+                    <div class="col form-group">{{ form_row(form.telephone, {'label': 'Numero de telephone', 'attr': {'class': 'form-control'}}) }}</div>
+                    <div class="col form-group">{{ form_row(form.email, {'label': 'Adresse email', 'attr': {'class': 'form-control'}}) }}</div>
+                </div>
+                <div class="row">
+                    <div class="col form-group">{{ form_row(form.message, {'label': 'Votre message', 'attr': {'class': 'form-control'}}) }}</div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline-primary">Envoyer</button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
